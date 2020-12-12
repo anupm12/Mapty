@@ -30,6 +30,14 @@ if (navigator.geolocation)
         .openPopup();
     },
 
+    map.on('click', function (mapEvent) {
+        const { lat, lng } = mapEvent.latlng;
+        L.marker([lat, lng])
+          .addTo(map)
+          .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+          .openPopup();
+      });
+
     function () {
       alert('Could not get location');
     }
